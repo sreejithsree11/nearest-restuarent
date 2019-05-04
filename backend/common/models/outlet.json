@@ -1,0 +1,69 @@
+{
+  "name": "Outlet",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "geometry": {
+      "type": "object",
+      "required": true
+    },
+    "properties": {
+      "type": "object",
+      "required": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": false,
+      "defualt": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "getOutlets": {
+      "accepts": [
+        {
+          "arg": "address",
+          "type": "String",
+          "required": true,
+          "description": "address",
+          "http": {
+            "source": "query"
+          }
+        },
+        {
+          "arg": "options",
+          "type": "object",
+          "http": "optionsFromRequest"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Message after request"
+        }
+      ],
+      "description": "Endpoint for getting one outlets",
+      "http": [
+        {
+          "path": "/list",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

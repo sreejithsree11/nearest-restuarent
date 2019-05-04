@@ -1,0 +1,12 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "hf": {
+    "url": "${MONGO_URL}",
+    "name": "hf",
+    "connector": "mongodb",
+    "protocol": "mongodb+srv"
+  }
+}
