@@ -1,0 +1,28 @@
+.hf-form-container {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.hf-form-container > .mdl-textfield {
+    width: 400px;
+}
+.hf-outer-div {
+    padding: 2%;
+}
+
+.feed-container {
+    width: 512px; 
+    margin: auto;
+    min-height: 60px !important;
+    max-height: 50px;
+}
+
+.hr-line {
+    border-top: 1px solid #f3f3f39e;
+
+}
+.hf-title > .mdl-card__title-text {
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+}
