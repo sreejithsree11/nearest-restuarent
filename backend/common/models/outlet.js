@@ -4,13 +4,15 @@ module.exports = function(Outlet) {
 
     /**
      * API for getting outlets of corresponding address.
-     * @param { Array } coordinates
+     * @param { String } lat
+     * @param { String } lan
      * @return { Promise<{totalCount: Number, data: array}> }
      */
-    Outlet.getOutlets = async(coordinates) => {
+    Outlet.getOutlets = async(lat, lan) => {
         // Getting the collection details.
         var collection = Outlet.getDataSource().connector.collection("Outlet");
         // Setting the Filter.
+        const coordinates = [lan, lat];
         const filter = getFilter(coordinates);
         // Fetching the records.
         var dataSet = await collection.find(filter, function(err, res) {
@@ -29,7 +31,7 @@ module.exports = function(Outlet) {
      */
     function getReleventData(dataSet) {
         const firstElement = dataSet[0];
-        return firstElement.properties;
+        return firstElement && firstElement.properties;
     }
 
     /**
@@ -43,10 +45,7 @@ module.exports = function(Outlet) {
                 $near: {
                     $geometry: {
                         type: "Point",
-                        coordinates: [
-                            16.343130,
-                            48.194908
-                        ]
+                        coordinates: coordinates
                     },
                     $maxDistance: 100
                 }

@@ -35,10 +35,18 @@
     "getOutlets": {
       "accepts": [
         {
-          "arg": "address",
-          "type": "String",
+          "arg": "lat",
+          "type": "Number",
           "required": true,
-          "description": "address",
+          "description": "lat",
+          "http": {
+            "source": "query"
+          }
+        },{
+          "arg": "lan",
+          "type": "Number",
+          "required": true,
+          "description": "lan",
           "http": {
             "source": "query"
           }
