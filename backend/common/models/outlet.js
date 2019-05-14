@@ -21,7 +21,7 @@ module.exports = function(Outlet) {
 
         // returning first element.
         const outletDetails = getReleventData(dataSet);
-        return outletDetails;
+        return outletDetails || null;
     };
 
     /**
